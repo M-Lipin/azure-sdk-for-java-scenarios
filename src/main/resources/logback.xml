@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>
+                %d{HH:mm:ss.SSS} [%t] %-5level %marker %logger{36} - %msg%n%n
+            </Pattern>
+        </layout>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>scenarios.log</file>
+        <append>true</append>
+        <!-- set immediateFlush to false for much higher logging throughput -->
+        <immediateFlush>true</immediateFlush>
+        <!-- encoders are assigned the type
+             ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%t] %-5level %marker %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.azure.cosmos.sdk.scenarios.groups" level="debug" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="CONSOLE-START-GROUP"/>
+        <appender-ref ref="CONSOLE-START-SCENARIO"/>
+
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="FILE-START-GROUP"/>
+        <appender-ref ref="FILE-START-SCENARIO"/>
+    </logger>
+
+    <root level="error" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="CONSOLE-START-GROUP"/>
+        <appender-ref ref="CONSOLE-START-SCENARIO"/>
+
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="FILE-START-GROUP"/>
+        <appender-ref ref="FILE-START-SCENARIO"/>
+    </root>
+
+</configuration>
