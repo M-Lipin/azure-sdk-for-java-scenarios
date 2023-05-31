@@ -6,8 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="my-azure-sdk-tests" />
+        <module name="cosmos-sdk-scenarios" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="my-azure-sdk-tests" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>
